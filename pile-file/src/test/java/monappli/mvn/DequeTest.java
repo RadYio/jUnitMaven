@@ -72,5 +72,42 @@ public class DequeTest
         assertTrue(maDeque.estVide());
     }
 
+    @Test
+    @DisplayName("ajouterQueueOterQueueNValeurs")
+    public void ajouterQueueOterQueueNValeurs(){
+        int nbElem = 20;
+        stream.limit(nbElem).forEach(maDeque::ajouterQueue);
+        assertFalse(maDeque.estVide());
+
+        //on compte le nombre d'éléments
+        int nbElemDeque;
+        for(nbElemDeque = 0; !maDeque.estVide(); nbElemDeque++){
+            maDeque.oterQueue();
+        }
+        assertEquals(nbElem, nbElemDeque);
+    }
+
+    @Test
+    @DisplayName("ajouterQueueOterQueueUneValeur")
+    public void ajouterQueueOterQueueUneValeur(){
+        int nbElem = 1;
+        stream.limit(nbElem).forEach(maDeque::ajouterQueue);
+        assertFalse(maDeque.estVide());
+        maDeque.oterQueue();
+        assertTrue(maDeque.estVide());
+    }
+
+    @Test
+    @DisplayName("ajouterQueueOterQueueDeuxValeurs")
+    public void ajouterQueueOterQueueDeuxValeurs(){
+        int nbElem = 2;
+        stream.limit(nbElem).forEach(maDeque::ajouterQueue);
+        assertFalse(maDeque.estVide());
+        maDeque.oterQueue();
+        assertFalse(maDeque.estVide());
+        maDeque.oterQueue();
+        assertTrue(maDeque.estVide());
+    }
+
 
 }

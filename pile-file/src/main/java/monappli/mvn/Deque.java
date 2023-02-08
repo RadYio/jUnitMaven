@@ -59,7 +59,7 @@ public class Deque {
      */
     public int oterTete() throws IndexOutOfBoundsException{
         if (this.estVide()) {
-            throw new IndexOutOfBoundsException("La liste est vide");
+            throw new IndexOutOfBoundsException("La deque est vide");
         }
         int valeur = this.tete.getValeur();
         this.tete = this.tete.getApres();
@@ -88,10 +88,14 @@ public class Deque {
      * Oter un élément à la queue
      * @return la valeur de l'élément retiré
      */
-    public int oterQueue(){
+    public int oterQueue() throws IndexOutOfBoundsException{
+        if (this.estVide()) {
+            throw new IndexOutOfBoundsException("La deque est vide");
+        }
         int valeur = this.queue.getValeur();
         this.queue = this.queue.getAvant();
-        this.queue.setApres(null);
+        if(this.queue != null)
+            this.queue.setApres(null);
         return valeur;
     }
 
