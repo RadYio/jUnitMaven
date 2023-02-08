@@ -29,11 +29,11 @@ public class Deque {
     }
 
     /**
-     * Vérifie si la liste est vide
-     * @return true si la liste est vide, false sinon
+     * Vérifie si la deque est vide
+     * @return true si la deque est vide, false sinon
      */
     public boolean estVide() {
-        return this.tete == null;
+        return this.tete == null && this.queue == null;
     }
 
     /**
@@ -58,13 +58,13 @@ public class Deque {
      * @return la valeur de l'élément retiré
      */
     public int oterTete() throws IndexOutOfBoundsException{
-        if (this.estVide()) {
-            throw new IndexOutOfBoundsException("La deque est vide");
-        }
+        if (this.estVide()) throw new IndexOutOfBoundsException("La deque est vide");
+        
         int valeur = this.tete.getValeur();
         this.tete = this.tete.getApres();
-        if(this.tete != null)
-            this.tete.setAvant(null);
+        //Si la tete est null, la queue doit l'être aussi
+        if(this.tete == null) this.queue = null;
+        else this.tete.setAvant(null);
         return valeur;
     }
 
@@ -89,14 +89,14 @@ public class Deque {
      * @return la valeur de l'élément retiré
      */
     public int oterQueue() throws IndexOutOfBoundsException{
-        if (this.estVide()) {
-            throw new IndexOutOfBoundsException("La deque est vide");
-        }
+        if (this.estVide()) throw new IndexOutOfBoundsException("La deque est vide");
         int valeur = this.queue.getValeur();
         this.queue = this.queue.getAvant();
         if(this.queue != null)
             this.queue.setApres(null);
+            this.tete = null;
         return valeur;
+
     }
 
     /**
@@ -120,7 +120,8 @@ public class Deque {
         return s;
     }
 
-    private static void main(String args[]){
+    public static void main(String args[]){
+        System.out.println("fesse");
 
     }
 

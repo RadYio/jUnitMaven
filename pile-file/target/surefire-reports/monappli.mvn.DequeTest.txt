@@ -1,16 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: monappli.mvn.DequeTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.03 s <<< FAILURE! - in monappli.mvn.DequeTest
-ajouterQueueOterQueueUneValeur  Time elapsed: 0.005 s  <<< FAILURE!
-java.lang.AssertionError
-	at monappli.mvn.DequeTest.ajouterQueueOterQueueUneValeur(DequeTest.java:97)
-
-ajouterQueueOterQueueNValeurs  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "monappli.mvn.Element.getValeur()" because "this.queue" is null
-	at monappli.mvn.DequeTest.ajouterQueueOterQueueNValeurs(DequeTest.java:85)
-
-ajouterQueueOterQueueDeuxValeurs  Time elapsed: 0.001 s  <<< FAILURE!
-java.lang.AssertionError
-	at monappli.mvn.DequeTest.ajouterQueueOterQueueDeuxValeurs(DequeTest.java:109)
-
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in monappli.mvn.DequeTest
