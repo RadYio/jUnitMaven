@@ -11,6 +11,14 @@ public class Deque {
     
     /**
      * Constructeur de la classe Deque
+     */
+    Deque() {
+        this.tete = null;
+        this.queue = null;
+    }
+
+    /**
+     * Constructeur de la classe Deque
      * @param tete l'élément de tête de la liste
      * @param queue l'élément de queue de la liste
      * 
@@ -50,9 +58,13 @@ public class Deque {
      * @return la valeur de l'élément retiré
      */
     public int oterTete() throws IndexOutOfBoundsException{
+        if (this.estVide()) {
+            throw new IndexOutOfBoundsException("La liste est vide");
+        }
         int valeur = this.tete.getValeur();
         this.tete = this.tete.getApres();
-        this.tete.setAvant(null);
+        if(this.tete != null)
+            this.tete.setAvant(null);
         return valeur;
     }
 

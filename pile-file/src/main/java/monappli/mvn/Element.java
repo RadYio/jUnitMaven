@@ -9,7 +9,6 @@ public class Element {
         this.valeur = valeur;
         this.avant = null;
         this.apres = null;
-        System.out.println("Création d'un élément avec la valeur " + valeur);
     }
 
     /**
